@@ -18,6 +18,11 @@ public class Aeropuerto
 	String nombreCiudad;
 	double latitud;
 	double longitud;
+	static int RADIO_TERRESTRE = 6371;
+	Set<String> codigosUtilizados = new HashSet<String>();
+	String destino;
+	String origen;
+	
 	
 	public Aeropuerto(String nombre1,String codigo1,String nombreCiudad1,double latitud1, double longitud1) 
 	{
@@ -27,7 +32,6 @@ public class Aeropuerto
 		nombreCiudad= nombreCiudad1;
 		latitud = latitud1;
 		longitud = longitud1;
-		
 	}
 	
 	
@@ -38,23 +42,39 @@ public class Aeropuerto
 	
 	public String getNombre()
 	{
-		return null;
+		return nombre;
 	}
 	public String getCodigo()
 	{
-		return null;
+		return codigo;
 	}
 	public String getNombreCiudad()
 	{
-		return null;
+		return nombreCiudad;
 	}
 	public Double getLatitud()
 	{
-		return null;
+		return latitud;
 	}
 	public Double getLongitud()
 	{
-		return null;
+		return longitud;
+	}
+	public static int CalcularDistancia(Aeropuerto aeropuerto1, Aeropuerto aeropuerto2)
+	{
+		double latitud1 = Math.toRadians(aeropuerto1.getLatitud());
+        double longitud1 = Math.toRadians(aeropuerto1.getLongitud());
+        double latitud2 = Math.toRadians(aeropuerto2.getLatitud());
+        double longitud2 = Math.toRadians(aeropuerto2.getLongitud());
+        double diferenciaLatitud = latitud2 - latitud1;
+        double diferenciaLongitud = longitud2 - longitud1;
+        double a = Math.pow(Math.sin(diferenciaLatitud / 2), 2)
+                 + Math.cos(latitud1) * Math.cos(latitud2)
+                 * Math.pow(Math.sin(diferenciaLongitud / 2), 2);
+        double c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
+        double distancia = RADIO_TERRESTRE * c;
+
+        return (int) Math.round(distancia);
 	}
 	
 		

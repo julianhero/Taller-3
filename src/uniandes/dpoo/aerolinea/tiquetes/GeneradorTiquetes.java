@@ -9,9 +9,12 @@ import uniandes.dpoo.aerolinea.modelo.cliente.Cliente;
 /**
  * Esta clase representa al módulo del sistema que es capaz de generar nuevos tiquetes, asignándole a cada uno un código único.
  */
+
+
 public class GeneradorTiquetes
 {
-    /**
+    
+	/**
      * Un conjunto con los códigos que ya han sido usados anteriormente para otros tiquetes.
      * 
      * Este conjunto se utiliza para no correr el riesgo de repetir un código.
@@ -47,7 +50,9 @@ public class GeneradorTiquetes
      */
     public static void registrarTiquete( Tiquete unTiquete )
     {
-        // TODO implementar
+        String codigo = unTiquete.getCodigo();
+        codigos.add(codigo);
+        
     }
 
     /**
@@ -57,7 +62,7 @@ public class GeneradorTiquetes
      */
     public static boolean validarTiquete( String codigoTiquete )
     {
-        // TODO implementar
-        return false;
+    	return codigos.contains(codigoTiquete);
+    
     }
 }

@@ -1,23 +1,26 @@
 package uniandes.dpoo.aerolinea.modelo;
 
-public class Avion {
+public class Avion 
+{
 
 	String nombre;
 	int capacidad;
 	
-	public Avion(Aeropuerto origen,Aeropuerto destino,String horaSalida, String horaLlegada,String codigoRuta)
+	public Avion(String nombre1, int capacidad1)
 	{
-		
+		nombre = nombre1;
+		capacidad = capacidad1;
 	}
+
 	public String getNombre()
 	{
-		return null;
+		return nombre;
 		
 	}
 	
 	public int getCapacidad()
 	{
-		return (Integer)null;
+		return capacidad;
 	}
 	
 	

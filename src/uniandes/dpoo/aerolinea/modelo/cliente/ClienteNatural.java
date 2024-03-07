@@ -2,18 +2,20 @@ package uniandes.dpoo.aerolinea.modelo.cliente;
 
 public class ClienteNatural {
 
-	public String NATURAL = "natural";
+	public String NATURAL = "Natural";
 	
 	private String nombre;
-	public ClienteNatural(String nombre)
+	public ClienteNatural(String nombre1)
 	{
+		nombre = nombre1;
 	}
+	
 	public String getIdentenficador()
 	{
-		return null;
+		return nombre;
 	}
 	public String getTipoCliente()
 	{
-		return null;
+		return NATURAL;
 	}
 }
